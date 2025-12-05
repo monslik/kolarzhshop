@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Каталог товаров - KOLARZH SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>KOLARZH SHOP</h1>
+                    <p>Премиальная свинина</p>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="catalog.html" class="active">Каталог</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="catalog.html?category=meat">Свинина мясо</a></li>
+                                <li><a href="catalog.html?category=minced">Фарш</a></li>
+                                <li><a href="catalog.html?category=tenderloin">Вырезка</a></li>
+                                <li><a href="catalog.html?category=neck">Шея</a></li>
+                                <li><a href="catalog.html?category=lard">Сало</a></li>
+                                <li><a href="catalog.html?category=smoked-lard">Сало копченое</a></li>
+                                <li><a href="catalog.html?category=salted-lard">Сало засоленное</a></li>
+                                <li><a href="catalog.html?category=belly">Боковина</a></li>
+                                <li><a href="catalog.html?category=head">Голова</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="cart.html" class="cart-link">Корзина <span class="cart-count">0</span></a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Header -->
+    <section class="catalog-header">
+        <div class="container">
+            <h1 class="page-title">Каталог товаров</h1>
+            <p class="page-subtitle">Выберите свежее мясо для вашего стола</p>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="catalog-filters">
+        <div class="container">
+            <div class="filters-wrapper">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Поиск товаров...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>Категория:</label>
+                        <select id="category-filter">
+                            <option value="all">Все категории</option>
+                            <option value="meat">Свинина мясо</option>
+                            <option value="minced">Фарш</option>
+                            <option value="tenderloin">Вырезка</option>
+                            <option value="neck">Шея</option>
+                            <option value="lard">Сало</option>
+                            <option value="smoked-lard">Сало копченое</option>
+                            <option value="salted-lard">Сало засоленное</option>
+                            <option value="belly">Боковина</option>
+                            <option value="head">Голова</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Цена:</label>
+                        <select id="price-filter">
+                            <option value="all">Все цены</option>
+                            <option value="0-500">До 500 ₽</option>
+                            <option value="500-1000">500 - 1000 ₽</option>
+                            <option value="1000-2000">1000 - 2000 ₽</option>
+                            <option value="2000+">От 2000 ₽</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Сортировка:</label>
+                        <select id="sort-filter">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Цена: по возрастанию</option>
+                            <option value="price-desc">Цена: по убыванию</option>
+                            <option value="name-asc">Название: А-Я</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline" id="reset-filters">Сбросить</button>
+                </div>
+            </div>
+            <div class="comparison-bar" id="comparison-bar" style="display: none;">
+                <span>Товаров в сравнении: <span id="comparison-count">0</span></span>
+                <button class="btn btn-primary" id="compare-btn">Сравнить</button>
+                <button class="btn btn-outline" id="clear-comparison">Очистить</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="catalog-products">
+        <div class="container">
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+            <div class="no-results" id="no-results" style="display: none;">
+                <p>Товары не найдены. Попробуйте изменить параметры поиска.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KOLARZH SHOP</h3>
+                    <p>Премиальная свинина высшего качества</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="about.html">О компании</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (978) 847-60-99</p>
+                    <p>Телефон: +7 (978) 847-60-98</p>
+                    <p>Email: info@myasnoy-dom.ru</p>
+                    <p>Адрес: Республика Крым, Джанкойский р-он, с.Яркое</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KOLARZH SHOP. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Comparison Modal -->
+    <div id="comparison-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="modal-close">&times;</span>
+            <h2>Сравнение товаров</h2>
+            <div id="comparison-table"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

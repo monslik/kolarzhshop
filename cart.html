@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Корзина - KOLARZH SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>KOLARZH SHOP</h1>
+                    <p>Премиальная свинина</p>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="catalog.html">Каталог</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="catalog.html?category=meat">Свинина мясо</a></li>
+                                <li><a href="catalog.html?category=minced">Фарш</a></li>
+                                <li><a href="catalog.html?category=tenderloin">Вырезка</a></li>
+                                <li><a href="catalog.html?category=neck">Шея</a></li>
+                                <li><a href="catalog.html?category=lard">Сало</a></li>
+                                <li><a href="catalog.html?category=smoked-lard">Сало копченое</a></li>
+                                <li><a href="catalog.html?category=salted-lard">Сало засоленное</a></li>
+                                <li><a href="catalog.html?category=belly">Боковина</a></li>
+                                <li><a href="catalog.html?category=head">Голова</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="cart.html" class="cart-link active">Корзина <span class="cart-count">0</span></a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Корзина</h1>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-content">
+        <div class="container">
+            <div class="cart-wrapper">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be loaded by JavaScript -->
+                </div>
+                <div class="cart-summary">
+                    <h3>Итого</h3>
+                    <div class="summary-row">
+                        <span>Товаров:</span>
+                        <span id="total-items">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма:</span>
+                        <span id="total-price">0 ₽</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>К оплате:</span>
+                        <span id="final-price">0 ₽</span>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="checkout-btn">Оформить заказ</button>
+                    <a href="catalog.html" class="btn btn-outline btn-large">Продолжить покупки</a>
+                </div>
+            </div>
+            <div class="cart-empty" id="cart-empty" style="display: none;">
+                <div class="empty-cart-icon">🛒</div>
+                <h2>Ваша корзина пуста</h2>
+                <p>Добавьте товары из каталога</p>
+                <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KOLARZH SHOP</h3>
+                    <p>Премиальная свинина высшего качества</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="about.html">О компании</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (978) 847-60-99</p>
+                    <p>Телефон: +7 (978) 847-60-98</p>
+                    <p>Email: info@myasnoy-dom.ru</p>
+                    <p>Адрес: Республика Крым, Джанкойский р-он, с.Яркое</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KOLARZH SHOP. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="modal-close">&times;</span>
+            <h2>Оформление заказа</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Имя *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон *</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email">
+                </div>
+                <div class="form-group">
+                    <label>Адрес доставки *</label>
+                    <textarea rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Комментарий к заказу</label>
+                    <textarea rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Способ оплаты *</label>
+                    <select required>
+                        <option value="">Выберите способ оплаты</option>
+                        <option value="cash">Наличными при получении</option>
+                        <option value="card">Банковской картой</option>
+                        <option value="online">Онлайн оплата</option>
+                    </select>
+                </div>
+                <div class="order-summary">
+                    <h3>Ваш заказ</h3>
+                    <div id="checkout-items"></div>
+                    <div class="summary-row total">
+                        <span>К оплате:</span>
+                        <span id="checkout-total">0 ₽</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
